@@ -1,14 +1,12 @@
 from django.contrib import admin
 from django.http import HttpResponse
-from django.urls import path
+from django.urls import path, include
 
 def root(request):
     return HttpResponse("Hello Django")
 
-from blog import views
-
 urlpatterns = [
     path('', root),
-    path('blog/', views.index),
+    path('blog/',include('blog.urls')),
     path('admin/', admin.site.urls),
 ]
