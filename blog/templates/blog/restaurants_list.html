@@ -1,0 +1,17 @@
+<!DOCTYPE html>
+<html lang="ko">
+  <head>
+    <meta charset="UTF-8" />
+  </head>
+  <body>
+    {% for post in post_list %}
+    <h2>
+      <a href="{{ post.get_absolute_url }} ">{{ post.name }}</a>
+    </h2>
+    <h4>{{ post.description }}</h4>
+    <p>{{ post.average_score }}</p>
+    <hr />
+    {% endfor %}
+    <a href="/blog/restaurants/new/">레스토랑 생성</a>
+  </body>
+</html>
