@@ -1,13 +1,5 @@
-<!DOCTYPE html>
-<html lang="ko">
-  <head>
-    <meta charset="UTF-8" />
-    <title>♡♥ 다이어리 만들기 ♡♥</title>
-  </head>
-  <body>
-    <h1>♡♥ 다이어리 만들기 ♡♥</h1>
-    <a href="/diary/new/">새 다이어리 쓰기</a>
-    <hr />
+{% extends "diary/base.html" %}
+{% block content %}
     {% for diary in diary_list %} ♡♥♡♥♡♥♡♥♡♥♡♥♡♥♡♥♡♡♥♡♥♡♥
     <h2>
       <a href="{{ diary.get_absolute_url }}">{{ diary.title }}</a>
@@ -15,6 +7,4 @@
     <h4>{{ diary.created_at }}</h4>
     <p>{{ diary.message }}</p>
     {% endfor %}
-    <hr />
-  </body>
-</html>
+{% endblock %}
