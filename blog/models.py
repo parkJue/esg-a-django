@@ -30,3 +30,7 @@ class Post(models.Model):
     
     def __str__(self):
         return f'[{self.pk}] {self.title}' # f"" 문자열로 만들어줌
+
+    class Meta:
+        # 쿼리셋에서 order_by를 지정하지 않았을 때 사용
+        ordering=['-id']
