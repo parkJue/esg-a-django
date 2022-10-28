@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html lang="ko">
+  <head>
+    <meta charset="UTF-8" />
+    <title>{{ diary.title }} - Diary</title>
+  </head>
+  <body>
+    <nav>
+        <a href="/diary/{{  diary.pk }}/edit/">Edit</a>
+        <a href="/diary/{{  diary.pk }}/delete/">delete</a>
+
+        <a href="/diary/">Diary Home</a>
+    </nav>
+    <h1>{{ diary.title }}</h1>
+    <h4>{{ diary.created_at }}</h4>
+    <p>{{ diary.message }}</p>
+    ♡♥♡♥♡♥♡♥♡♥♡♥♡♥♡♥♡♡♥♡♥♡♥
+  </body>
+</html>
