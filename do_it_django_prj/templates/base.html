@@ -1,0 +1,53 @@
+{% load django_bootstrap5 %}
+
+<!DOCTYPE html>
+<html lang="ko">
+  <head>
+    <meta charset="UTF-8" />
+    <title>♡♥ 다이어리 만들기 ♡♥</title>
+      {% bootstrap_css %}
+  </head>
+  <body>
+  <div class="container">
+      <header class="d-flex flex-wrap justify-content-center py-3 mb-4 border-bottom">
+          <a href="/" class="d-flex align-items-center mb-3 mb-md-0 me-md-auto text-dark text-decoration-none">
+              <span class="fs-4">Django Diary</span>
+          </a>
+
+          <ul class="nav nav-pills">
+              <li class="nav-item"><a href="/blog/" class="nav-link">Blog</a></li>
+              <li class="nav-item"><a href="/diary/" class="nav-link">Diary</a></li>
+              {#로그인(인증) 유무 판단#}
+              {% if not user.is_authenticated %}
+                  <li class="nav-item"><a href="/accounts/signup/" class="nav-link">Signup</a></li>
+                  <li class="nav-item"><a href="/accounts/login/" class="nav-link">Login</a></li>
+              {% else %}
+                  <li class="nav-item"><a href="/accounts/profile/" class="nav-link">Profile</a></li>
+                  <li class="nav-item"><a href="/accounts/logout/" class="nav-link">Logout</a></li>
+              {% endif %}
+          </ul>
+      </header>
+  </div>
+    {% if messages %}
+        <ul>
+            {% for message in messages %}
+            <li>
+                {{ message.tags }}
+                {{ message }}
+            </li>
+        {% endfor %}
+        </ul>
+    {% endif %}
+      <div class="container">
+          <h1>♡♥ 다이어리 만들기 ♡♥</h1>
+          <a href="/diary/new/">새 다이어리 쓰기</a>
+          <hr />
+
+          {% bootstrap_messages %}
+          {%  block content %} {% endblock %}
+          <hr>
+          &copy; 2022. parkeu Company
+          {% bootstrap_javascript %}
+      </div>
+  </body>
+</html>
